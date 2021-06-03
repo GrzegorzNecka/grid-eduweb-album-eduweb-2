@@ -1,0 +1,57 @@
+:root {
+  --main-bg-color: pink;
+  --figure-bg-color: red;
+  --specific-border: 2px solid red;
+}
+
+body {
+  background: var(--main-bg-color);
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+ul.grid {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 150px));
+  grid-gap: 20px;
+}
+
+ul.grid figure {
+  background-color: var(--figure-bg-color);
+  display: grid;
+  grid-gap: 10px;
+  justify-items: center;
+  position: relative;
+}
+
+ul.grid figure figcaption {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul.grid figure:hover img {
+  opacity: 0.5;
+}
+
+ul.grid figure:hover figcaption {
+  opacity: 0;
+}
+
+ul.grid li:nth-last-child(-1n + 2) {
+  border: var(--specific-border);
+  grid-column: span 2;
+}
+
+ul.grid img {
+  max-width: 100%;
+}
